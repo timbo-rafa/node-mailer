@@ -16,7 +16,7 @@ router
   } else {
     mailOptions.subject = nconf.get('SUBJECT')
   }
-  mailOptions.from = req.body.from
+  mailOptions.from = req.body.name + " <" + req.body.from + ">"
   mailOptions.text = req.body.text
 
   mailer.sendMail(mailOptions, function(error) {

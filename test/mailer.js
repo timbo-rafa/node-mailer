@@ -9,6 +9,7 @@ describe('Tests', function () {
   'use strict'
 
   let form = {
+    name: 'Raf Tester',
     to: 'to-garbage',
     from: 'rafael.soft.dev+from@gmail.com',
     subject: 'This is a test subject',
