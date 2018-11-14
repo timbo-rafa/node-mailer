@@ -14,13 +14,13 @@ app
 app.use(function (request, response, next) {
   'use strict'
 
-  response.header('Content-Type', 'application/json')
+  //response.header('Content-Type', 'application/json')
   response.header('Content-Encoding', 'UTF-8')
   response.header('Content-Language', 'en')
   //response.header('Cache-Control', 'no-cache, no-store, must-revalidate')
   //response.header('Pragma', 'no-cache')
   //response.header('Expires', '0')
-  response.header('Access-Control-Allow-Origin',	'https://timbo-rafa.herokuapp.com/')
+  response.header('Access-Control-Allow-Origin',	'https://timbo-rafa.github.io/')
   //response.header('Access-Control-Allow-Methods', request.get('Access-Control-Request-Method'))
   //response.header('Access-Control-Allow-Headers', request.get('Access-Control-Request-Headers'))
   next()
