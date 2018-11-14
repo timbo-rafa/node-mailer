@@ -1,0 +1,9 @@
+{
+  "FROM": "from@gmail.com",
+  "TO": "timbo.rafa@gmail.com",
+  "SUBJECT": "Contact from timbo-rafa.github.io",
+  "PORT":8881,
+  "HOST": "127.0.0.1",
+  "ETHEREAL_USERNAME": "un2gz54dijk5lvrh@ethereal.email",
+  "ETHEREAL_PASS": "q5p1nKp2dz2CHa5qJd"
+}
