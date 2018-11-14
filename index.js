@@ -29,17 +29,6 @@ app.use(function handleErrors (error, request, response, next) {
 		console.error('handleErrors:',error)
 		if(error) {
 				console.error('error.message', error.message)
-				//TODO error 409
-				if (error.name === "CastError") {
-						return response.status(404).send( { error: error.message })
-				}
-				else if (error.name === "ValidationError") {
-						return response.status(400).send({ error: error.message })
-				}
-				else if (error.name === "MongooseError") {
-						return response.status(400).send({ error: error.message } )
-				}
-				console.log('server error:', error)
 				return response.status(400).send({ error: error })
 		}
   console.error(error.stack)
