@@ -9,10 +9,10 @@ describe('Tests', function () {
   'use strict'
 
   let form = {
-    to: nconf.get('TO'),
-    from: nconf.get('FROM'),
-    subject: nconf.get('SUBJECT'),
-    text: 'text'
+    to: 'to-garbage',
+    from: 'rafael.soft.dev+from@gmail.com',
+    subject: 'This is a test subject',
+    text: 'This is a test email'
   }
 
   it('should send mail', function(done) {
