@@ -27,7 +27,7 @@ wrapper = {}
 wrapper.sendMail = function(mailOptions, cb) {
   mailOptions.to = defaultMailOptions.to
   mailOptions.replyTo = mailOptions.from
-  console.log(mailOptions);
+  console.log('transporter.auth', transporter.transporter.auth);
 
   //send mail with defined transport object
   transporter.sendMail(mailOptions, function(error, info) {
