@@ -16,12 +16,14 @@ router
 
 				//create reusable transporter object using the default smtp transport
 				let transporter = nodemailer.createTransport({
-						host: 'smtp.ethereal.email',
-						port: 587,
+      service: 'gmail',
+      host:'smtp.gmail.com',
+						//host: 'smtp.ethereal.email',
+						//port: 587,
 						//secure: true,
 						auth: {
-								user: nconf.get('ETHEREAL_USERNAME'),
-								pass: nconf.get('ETHEREAL_PASS')
+								user: nconf.get('GMAIL_USERNAME'),//nconf.get('ETHEREAL_USERNAME'),
+								pass: nconf.get('GOOGLE_APP_PASSWORD')//nconf.get('ETHEREAL_PASS')
 						}
 				});
 
