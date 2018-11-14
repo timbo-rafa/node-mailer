@@ -2,7 +2,7 @@ const mailer = require('./nodemailer-wrapper');
 const router = require('express').Router()
 const nconf = require('../nconf.js')
 
-console.log('mailer')
+console.log('mailer-wrapper loaded')
 
 router
   .route('/')
