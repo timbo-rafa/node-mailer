@@ -32,7 +32,8 @@ wrapper.sendMail = function(mailOptions, cb) {
   //send mail with defined transport object
   transporter.sendMail(mailOptions, function(error, info) {
     if (error) {
-      console.log(error);
+      console.log('Error:', error);
+      console.log('mailOptions:', mailOptions);
       return cb(error)
     } 
 
