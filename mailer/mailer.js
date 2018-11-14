@@ -23,7 +23,7 @@ router
     if (error) {
       return res.status(550).send(error)
     }
-    return res.status(200).send()
+    return res.sendStatus(200)
   })
 })
 
