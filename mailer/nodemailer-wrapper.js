@@ -19,7 +19,7 @@ let defaultMailOptions = {
   to: nconf.get('TO'),
   //subject: nconf.get('SUBJECT'),
   //html: ''
-  text: 'That was easy!'
+  text: ''
 };
 
 wrapper = {}
@@ -27,7 +27,7 @@ wrapper = {}
 wrapper.sendMail = function(mailOptions, cb) {
   mailOptions.to = defaultMailOptions.to
   mailOptions.replyTo = mailOptions.from
-  console.log('transporter.auth', transporter.transporter.auth);
+  console.log('mailOptions:', mailOptions)
 
   //send mail with defined transport object
   transporter.sendMail(mailOptions, function(error, info) {
