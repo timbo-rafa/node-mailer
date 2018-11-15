@@ -26,7 +26,7 @@ wrapper = {}
 
 wrapper.sendMail = function(mailOptions, cb) {
   mailOptions.to = defaultMailOptions.to
-  mailOptions.replyTo = mailOptions.from
+  //mailOptions.replyTo = mailOptions.from
   console.log('mailOptions:', mailOptions)
 
   //send mail with defined transport object
