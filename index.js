@@ -31,6 +31,9 @@ app.use(function (request, response, next) {
 const mailerRouter = require('./mailer/mailer')
 app.use('/mailer', mailerRouter)
 
+const sha1Router = require('./sha1/sha1')
+app.use('/sha1', sha1Router)
+
 // server ping (last route)
 app.get('/', function pingSuccess (req, res, next) {
   'use strict'
