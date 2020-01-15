@@ -9,6 +9,7 @@ router
   .route('/')
   .post(function sendMail(req, res, next) {
 
+  console.log('sendMail', req.body);
   let mailOptions = {}
   const recaptchaSecret = nconf.get('RECAPTCHA_SECRET');
   const recaptchaToken = req.body.token;
@@ -18,7 +19,7 @@ router
     recaptchaVerifyUrl,
     {},
     function (error, response, body) {
-        console.log('recaptcha response', body, error, response);
+        console.log('recaptcha response', error, response);
         if (!error) {
             return res.send(body);
         }
