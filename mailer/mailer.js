@@ -1,6 +1,7 @@
 const mailer = require('./nodemailer-wrapper');
-const router = require('express').Router()
-const nconf = require('../nconf.js')
+const router = require('express').Router();
+const nconf = require('../nconf.js');
+const request = require('request');
 
 console.log('mailer-wrapper loaded')
 
@@ -9,7 +10,21 @@ router
   .post(function sendMail(req, res, next) {
 
   let mailOptions = {}
+  const recaptchaSecret = nconf.get('RECAPTCHA_SECRET');
+  const recaptchaToken = req.body.token;
+  const recaptchaVerifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaToken}`;
   
+  request.post(
+    recaptchaVerifyUrl,
+    {},
+    function (error, response, body) {
+        console.log('recaptcha response', body, error, response);
+        if (!error) {
+            return res.send(body);
+        }
+        res.status(response.statusCode).send(error);
+    }
+);
   //parse input
   if (req.body.subject && req.body.subject !== '') {
     mailOptions.subject = req.body.subject
