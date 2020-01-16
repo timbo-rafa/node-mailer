@@ -19,28 +19,26 @@ router
     recaptchaVerifyUrl,
     {},
     function (error, response, body) {
-        console.log('recaptcha response', error, response);
-        if (!error) {
-            return res.send(body);
+        if (body.success === false) {
+            return res.status(500).send(error);
         }
-        res.status(response.statusCode).send(error);
-    }
-);
-  //parse input
-  if (req.body.subject && req.body.subject !== '') {
-    mailOptions.subject = req.body.subject
-  } else {
-    mailOptions.subject = nconf.get('SUBJECT')
-  }
-  mailOptions.replyTo = req.body.name + " <" + req.body.from + ">"
-  mailOptions.text = req.body.text
 
-  mailer.sendMail(mailOptions, function(error) {
-    if (error) {
-      return res.status(550).send(error)
+        if (req.body.subject && req.body.subject !== '') {
+          mailOptions.subject = req.body.subject
+        } else {
+          mailOptions.subject = nconf.get('SUBJECT')
+        }
+        mailOptions.replyTo = req.body.name + " <" + req.body.from + ">"
+        mailOptions.text = req.body.text
+
+        mailer.sendMail(mailOptions, function(error) {
+          if (error) {
+            return res.status(500).send(error)
+          }
+          return res.sendStatus(200)
+        })        
     }
-    return res.sendStatus(200)
-  })
+  );
 })
 
 module.exports = router
