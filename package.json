@@ -19,7 +19,7 @@
   "description": "Simple node.js mailer server",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "helmet": "^3.21.2",
     "morgan": "^1.9.1",
     "nconf": "^0.10.0",
